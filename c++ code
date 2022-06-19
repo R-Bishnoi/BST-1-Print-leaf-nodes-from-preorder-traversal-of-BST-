@@ -1,0 +1,37 @@
+class Solution {
+  public:
+  
+
+
+ 
+void solve(int arr[],int min ,int max,int &i,int n,vector<int>&v){
+    
+    if(i>=n)return ;
+    if(arr[i]>max || arr[i]<min)return ;
+    
+    int id=i;
+    i++;
+
+    solve(arr,min,arr[i-1],i,n,v);
+    solve(arr,arr[i-1],max,i,n,v);
+    
+    
+    if(id+1==i)v.push_back(arr[id]);
+
+} 
+ 
+ 
+vector<int> leafNodes(int arr[],int n) {
+    vector<int>v;
+    int i=0;
+     solve(arr,INT_MIN,INT_MAX,i,n,v);
+      
+     
+     return v;
+    }
+    
+    
+    
+    
+};
+
